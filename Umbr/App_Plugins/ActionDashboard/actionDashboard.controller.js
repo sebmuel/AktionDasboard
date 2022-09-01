@@ -2,11 +2,11 @@
 
     var vm = this;
 
-    contentResource.getById(1151).then(function (data) {
-        var nodes = data.variants;
+    var partners = contentResource.getChildren(1151);
 
-        console.log(nodes[0].name)
+    partners.then(data => {
+        var partner = data.items
+        console.log(partner)
+    })
 
-        vm.Partner = nodes[0].name;
-    });
 });
