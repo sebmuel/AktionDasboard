@@ -1,12 +1,18 @@
-﻿angular.module("umbraco").controller("ActionDashboardController", function ($scope, contentResource) {
+﻿
+
+angular.module("umbraco").controller("ActionDashboardController", function ($scope, contentResource) {
 
     var vm = this;
 
-    var partners = contentResource.getChildren(1151);
+    contentResource.getChildren(1151)
+        .then(response => {
 
-    partners.then(data => {
-        var partner = data.items
-        console.log(partner)
+            vm.Partner = response.items;
+
+            console.log(vm.Partner)
     })
+    
+    
+
 
 });
